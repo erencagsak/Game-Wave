@@ -1,0 +1,64 @@
+/* Font urlsi çekildi. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --main-color: #54b2e9;
+    --black-color: #292727;
+    --border: 0.1rem solid rgba(255,255,255,0.4);
+}
+
+*{
+    /* Font olarak Poppins kullanıldı. ( Google fonts sayfasından ) */ 
+    font-family: "Poppins", sans-serif;
+
+    /* Köşeleri sıfırla. */
+    margin: 0; 
+    padding: 0;
+
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+
+    text-decoration: none; /* Text dekorasyonu none, linklerdeki alt çizgileri kaldırma vb. */
+    text-transform: capitalize; /* Text yazılarını büyük küçük yazdırıyor.*/
+    transition: 0.2s ease; /* Geçişleri yavaşlatıyor.*/
+}
+
+
+
+/*! HTML Kodlari */
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+/* Body Kodları */
+body{
+    /* Arka plan rengi değiştir. */
+    background-color: var(--main-color);
+    height: 200vh;
+}
+
+/* Header Logo */
+.header .logo img
+{
+    height: 10rem;
+}
+
+/* Header Üst Kısım */
+.header{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 2rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px rgba(0,0,0,0.75);
+
+    /* Üst barın scroll ile hareket etmesi sağlandı. */
+    position: sticky;
+    top: 0;
+}
