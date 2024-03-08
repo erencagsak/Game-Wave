@@ -38,12 +38,22 @@ html{
 body{
     /* Arka plan rengi değiştir. */
     background-color: var(--main-color);
-    height: 200vh;
+}
+
+/* Tüm blokların dikey, yatay olarak eşitlenmesini sağladı. */
+section{
+    padding: 3.5rem 7%;
 }
 
 /* Header Logo */
 .header .logo img
 {
+    height: 20rem;
+    margin-top: -4rem;
+}
+
+/* Header Yazılar ve üst kısım */
+.header .logo{
     height: 10rem;
 }
 
@@ -61,4 +71,60 @@ body{
     /* Üst barın scroll ile hareket etmesi sağlandı. */
     position: sticky;
     top: 0;
+    z-index: 1000;
+}
+/* Üst bardaki yazılar ayarlandı. */
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+}
+.header .navbar .active,
+.header .navbar a:hover{
+    border-color: var(--main-color);
+    padding-bottom: 0.5rem;
+}
+.header .buttons button{
+    cursor: pointer;
+    font-size:  2.5rem;
+    margin-left: 2rem;
+    background-color: transparent;
+}
+
+/* Home Kodları */
+.home{
+    min-height: 100vh;
+    background: url(../images/Header_Background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -14.5rem;
+    display: flex;
+    align-items: center;
+}
+.home .content{
+    max-width: 60rem;
+}
+.home .content h3{
+    font-size: 6rem;
+    color: #fff;
+}
+.home .content p{
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #e6e3e3;
+}
+
+/* Buton Kodları */
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 2rem 3.75rem;
+    border-radius: 30rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: var(--black-color);
+    cursor: pointer;
 }
