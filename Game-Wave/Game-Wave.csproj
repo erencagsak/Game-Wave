@@ -1,0 +1,958 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAF72628-D47C-4D7C-883C-18B39B2040A7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Game_Wave</RootNamespace>
+    <AssemblyName>Game-Wave</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44374</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="eshop\404.html" />
+    <Content Include="eshop\blog-single.html" />
+    <Content Include="eshop\blog.html" />
+    <Content Include="eshop\cart.html" />
+    <Content Include="eshop\checkout.html" />
+    <Content Include="eshop\contact-us.html" />
+    <Content Include="eshop\css\animate.css" />
+    <Content Include="eshop\css\bootstrap.min.css" />
+    <Content Include="eshop\css\font-awesome.min.css" />
+    <Content Include="eshop\css\main.css" />
+    <Content Include="eshop\css\prettyPhoto.css" />
+    <Content Include="eshop\css\price-range.css" />
+    <Content Include="eshop\css\responsive.css" />
+    <Content Include="eshop\fonts\fontawesome-webfont.svg" />
+    <Content Include="eshop\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="eshop\images\404\404.png" />
+    <Content Include="eshop\images\blog\blog-one.jpg" />
+    <Content Include="eshop\images\blog\blog-three.jpg" />
+    <Content Include="eshop\images\blog\blog-two.jpg" />
+    <Content Include="eshop\images\blog\man-four.jpg" />
+    <Content Include="eshop\images\blog\man-one.jpg" />
+    <Content Include="eshop\images\blog\man-three.jpg" />
+    <Content Include="eshop\images\blog\man-two.jpg" />
+    <Content Include="eshop\images\blog\socials.png" />
+    <Content Include="eshop\images\cart\one.png" />
+    <Content Include="eshop\images\cart\three.png" />
+    <Content Include="eshop\images\cart\two.png" />
+    <Content Include="eshop\images\home\bg_border.png" />
+    <Content Include="eshop\images\home\gallery1.jpg" />
+    <Content Include="eshop\images\home\gallery2.jpg" />
+    <Content Include="eshop\images\home\gallery3.jpg" />
+    <Content Include="eshop\images\home\gallery4.jpg" />
+    <Content Include="eshop\images\home\girl1.jpg" />
+    <Content Include="eshop\images\home\girl2.jpg" />
+    <Content Include="eshop\images\home\girl3.jpg" />
+    <Content Include="eshop\images\home\iframe1.png" />
+    <Content Include="eshop\images\home\iframe2.png" />
+    <Content Include="eshop\images\home\iframe3.png" />
+    <Content Include="eshop\images\home\iframe4.png" />
+    <Content Include="eshop\images\home\logo.png" />
+    <Content Include="eshop\images\home\map.png" />
+    <Content Include="eshop\images\home\new.png" />
+    <Content Include="eshop\images\home\partner1.png" />
+    <Content Include="eshop\images\home\partner2.png" />
+    <Content Include="eshop\images\home\partner3.png" />
+    <Content Include="eshop\images\home\partner4.png" />
+    <Content Include="eshop\images\home\pricing.png" />
+    <Content Include="eshop\images\home\product1.jpg" />
+    <Content Include="eshop\images\home\product2.jpg" />
+    <Content Include="eshop\images\home\product3.jpg" />
+    <Content Include="eshop\images\home\product4.jpg" />
+    <Content Include="eshop\images\home\product5.jpg" />
+    <Content Include="eshop\images\home\product6.jpg" />
+    <Content Include="eshop\images\home\recommend1.jpg" />
+    <Content Include="eshop\images\home\recommend2.jpg" />
+    <Content Include="eshop\images\home\recommend3.jpg" />
+    <Content Include="eshop\images\home\sale.png" />
+    <Content Include="eshop\images\home\searchicon.png" />
+    <Content Include="eshop\images\home\shipping.jpg" />
+    <Content Include="eshop\images\product-details\1.jpg" />
+    <Content Include="eshop\images\product-details\new.jpg" />
+    <Content Include="eshop\images\product-details\rating.png" />
+    <Content Include="eshop\images\product-details\share.png" />
+    <Content Include="eshop\images\product-details\similar1.jpg" />
+    <Content Include="eshop\images\product-details\similar2.jpg" />
+    <Content Include="eshop\images\product-details\similar3.jpg" />
+    <Content Include="eshop\images\shop\advertisement.jpg" />
+    <Content Include="eshop\images\shop\product10.jpg" />
+    <Content Include="eshop\images\shop\product11.jpg" />
+    <Content Include="eshop\images\shop\product12.jpg" />
+    <Content Include="eshop\images\shop\product7.jpg" />
+    <Content Include="eshop\images\shop\product8.jpg" />
+    <Content Include="eshop\images\shop\product9.jpg" />
+    <Content Include="eshop\index.html" />
+    <Content Include="eshop\js\bootstrap.min.js" />
+    <Content Include="eshop\js\contact.js" />
+    <Content Include="eshop\js\gmaps.js" />
+    <Content Include="eshop\js\html5shiv.js" />
+    <Content Include="eshop\js\jquery.js" />
+    <Content Include="eshop\js\jquery.prettyPhoto.js" />
+    <Content Include="eshop\js\jquery.scrollUp.min.js" />
+    <Content Include="eshop\js\main.js" />
+    <Content Include="eshop\js\price-range.js" />
+    <Content Include="eshop\login.html" />
+    <Content Include="eshop\product-details.html" />
+    <Content Include="eshop\shop.html" />
+    <Content Include="Game-Wave\styles\animate.css" />
+    <Content Include="Game-Wave\styles\bootstrap.min.css" />
+    <Content Include="Game-Wave\styles\font-awesome.min.css" />
+    <Content Include="Game-Wave\styles\main.css" />
+    <Content Include="Game-Wave\images\Header_Background.jpg" />
+    <Content Include="Game-Wave\images\Logo.png" />
+    <Content Include="Game-Wave\images\menu-1.png" />
+    <Content Include="Game-Wave\images\menu-2.png" />
+    <Content Include="Game-Wave\images\menu-3.png" />
+    <Content Include="Game-Wave\images\menu-4.png" />
+    <Content Include="Game-Wave\index.html" />
+    <Content Include="Game-Wave\styles\prettyPhoto.css" />
+    <Content Include="Game-Wave\styles\price-range.css" />
+    <Content Include="Game-Wave\styles\responsive.css" />
+    <Content Include="Game-Wave\styles\style.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Admin_Panel\404.html" />
+    <Content Include="Admin_Panel\assets\chart-master\Chart.js" />
+    <Content Include="Admin_Panel\assets\chart-master\Chart.min.js" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\Chart.js" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\index.html" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\prettify.css" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\prettify.js" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\styles.css" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\bar.html" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\doughnut.html" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\line.html" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\pie.html" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\polarArea.html" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\radar.html" />
+    <Content Include="Admin_Panel\assets\chart-master\samples\sixup.html" />
+    <Content Include="Admin_Panel\assets\chart-master\site\assets\6charts.png" />
+    <Content Include="Admin_Panel\assets\chart-master\site\assets\Chart.js" />
+    <Content Include="Admin_Panel\assets\chart-master\site\assets\effects.js" />
+    <Content Include="Admin_Panel\assets\chart-master\site\assets\excanvas.js" />
+    <Content Include="Admin_Panel\assets\chart-master\site\assets\html.png" />
+    <Content Include="Admin_Panel\assets\chart-master\site\assets\simple.png" />
+    <Content Include="Admin_Panel\assets\chart-master\site\index.html" />
+    <Content Include="Admin_Panel\assets\chart-master\site\styles.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\build-config.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\ckeditor.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\config.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\contents.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\af.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ar.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\bg.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\bn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\bs.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ca.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\cs.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\cy.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\da.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\de.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\el.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\en-au.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\en-ca.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\en-gb.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\en.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\eo.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\es.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\et.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\eu.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\fa.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\fi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\fo.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\fr-ca.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\fr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\gl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\gu.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\he.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\hi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\hr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\hu.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\is.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\it.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ja.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ka.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\km.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ko.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ku.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\lt.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\lv.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\mk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\mn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ms.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\nb.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\nl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\no.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\pl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\pt-br.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\pt.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ro.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ru.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\sk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\sl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\sr-latn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\sr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\sv.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\th.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\tr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\ug.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\uk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\vi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\zh-cn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\lang\zh.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\icons.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\ajax.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\api.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\appendto.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\assets\inlineall\logo.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\assets\sample.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\assets\sample.jpg" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\assets\uilanguages\languages.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\divreplace.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\index.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\inlineall.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\inlinebycode.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\dialog\assets\my_dialog.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\dialog\dialog.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\enterkey\enterkey.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\htmlwriter\outputforflash.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\htmlwriter\outputhtml.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\magicline\magicline.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\toolbar\toolbar.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\wysiwygarea\fullpage.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\readonly.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\replacebyclass.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\replacebycode.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\sample.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\sample.js" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\tabindex.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\uicolor.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\uilanguages.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\xhtmlstyle.html" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\dialog.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\dialog_ie.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\dialog_ie7.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\dialog_ie8.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\dialog_opera.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\editor.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\editor_gecko.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\editor_ie.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\editor_ie7.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\editor_ie8.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\editor_iequirks.css" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\icons.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\images\arrow.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\images\close.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\images\mini.png" />
+    <Content Include="Admin_Panel\assets\ckeditor\styles.js" />
+    <Content Include="Admin_Panel\assets\fullcalendar\changelog.txt" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\agenda-views.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\basic-views.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\cupertino\theme.css" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\default.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\external-dragging.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\gcal.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\json.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\selectable.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\theme.html" />
+    <Content Include="Admin_Panel\assets\fullcalendar\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="Admin_Panel\assets\fullcalendar\fullcalendar\fullcalendar.css" />
+    <Content Include="Admin_Panel\assets\fullcalendar\fullcalendar\fullcalendar.js" />
+    <Content Include="Admin_Panel\assets\fullcalendar\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Admin_Panel\assets\fullcalendar\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Admin_Panel\assets\fullcalendar\fullcalendar\gcal.js" />
+    <Content Include="Admin_Panel\assets\fullcalendar\GPL-LICENSE.txt" />
+    <Content Include="Admin_Panel\assets\fullcalendar\jquery\jquery-1.8.1.min.js" />
+    <Content Include="Admin_Panel\assets\fullcalendar\jquery\jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="Admin_Panel\assets\fullcalendar\MIT-LICENSE.txt" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\examples\excanvas.js" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\examples\index.html" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\examples\style.css" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\img\easy-pie-chart.png" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="Admin_Panel\assets\jquery-knob\index.html" />
+    <Content Include="Admin_Panel\assets\jquery-knob\js\jquery.knob.js" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Admin_Panel\assets\jquery-ui\jquery-ui-1.10.1.custom.css" />
+    <Content Include="Admin_Panel\assets\jquery-ui\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="Admin_Panel\assets\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Admin_Panel\assets\jquery-ui\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="Admin_Panel\assets\jquery-ui\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\area-as-line.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\area.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\bar-colors.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\bar-no-axes.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\bar.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\days.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\decimal-custom-hover.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\diagonal-xlabels-bar.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\diagonal-xlabels.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\donut-colors.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\donut-formatter.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\donut.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\dst.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\events.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\goals.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\lib\example.css" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\lib\example.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\lib\prettify.css" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\lib\prettify.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\months-no-smooth.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\negative.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\no-grid.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\non-continuous.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\non-date.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\quarters.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\stacked_bars.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\timestamps.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\updating.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\weeks.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\years.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\examples\_template.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\grunt.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\morris.css" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\morris.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\morris.min.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\raphael-min.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\specs.html" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\chai-1.3.0.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\chai-jquery-1.1.0.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\jquery-1.8.2.min.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\mocha-1.6.0.css" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\mocha-1.6.0.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\raphael-2.1.0.min.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\sinon-1.5.0.js" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\vendor\sinon-chai-2.1.2.js" />
+    <Content Include="Admin_Panel\basic_table.html" />
+    <Content Include="Admin_Panel\blank.html" />
+    <Content Include="Admin_Panel\buttons.html" />
+    <Content Include="Admin_Panel\chart-chartjs.html" />
+    <Content Include="Admin_Panel\contact.html" />
+    <Content Include="Admin_Panel\contactform\contactform.js" />
+    <Content Include="Admin_Panel\contactform\Readme.txt" />
+    <Content Include="Admin_Panel\css\bootstrap-colorpicker.css" />
+    <Content Include="Admin_Panel\css\bootstrap-datepicker.css" />
+    <Content Include="Admin_Panel\css\bootstrap-theme.css" />
+    <Content Include="Admin_Panel\css\bootstrap.min.css" />
+    <Content Include="Admin_Panel\css\daterangepicker.css" />
+    <Content Include="Admin_Panel\css\elegant-icons-style.css" />
+    <Content Include="Admin_Panel\css\font-awesome.css" />
+    <Content Include="Admin_Panel\css\font-awesome.min.css" />
+    <Content Include="Admin_Panel\css\fullcalendar.css" />
+    <Content Include="Admin_Panel\css\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Admin_Panel\css\jquery-ui-1.10.4.min.css" />
+    <Content Include="Admin_Panel\css\line-icons.css" />
+    <Content Include="Admin_Panel\css\owl.carousel.css" />
+    <Content Include="Admin_Panel\css\style-responsive.css" />
+    <Content Include="Admin_Panel\css\style.css" />
+    <Content Include="Admin_Panel\css\widgets.css" />
+    <Content Include="Admin_Panel\css\xcharts.min.css" />
+    <Content Include="Admin_Panel\fonts\ElegantIcons.svg" />
+    <Content Include="Admin_Panel\fonts\fontawesome-webfont.svg" />
+    <Content Include="Admin_Panel\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Admin_Panel\form_component.html" />
+    <Content Include="Admin_Panel\form_validation.html" />
+    <Content Include="Admin_Panel\general.html" />
+    <Content Include="Admin_Panel\grids.html" />
+    <Content Include="Admin_Panel\img\arrow-up.png" />
+    <Content Include="Admin_Panel\img\avatar-mini.jpg" />
+    <Content Include="Admin_Panel\img\avatar-mini2.jpg" />
+    <Content Include="Admin_Panel\img\avatar-mini3.jpg" />
+    <Content Include="Admin_Panel\img\avatar-mini4.jpg" />
+    <Content Include="Admin_Panel\img\avatar1.jpg" />
+    <Content Include="Admin_Panel\img\avatar1_small.jpg" />
+    <Content Include="Admin_Panel\img\bg-1.jpg" />
+    <Content Include="Admin_Panel\img\chart-texture.jpg" />
+    <Content Include="Admin_Panel\img\chat-avatar.jpg" />
+    <Content Include="Admin_Panel\img\chat-avatar2.jpg" />
+    <Content Include="Admin_Panel\img\customSelect-arrow.gif" />
+    <Content Include="Admin_Panel\img\geekslabs.png" />
+    <Content Include="Admin_Panel\img\Germany.png" />
+    <Content Include="Admin_Panel\img\icons\line-icon-c.png" />
+    <Content Include="Admin_Panel\img\icons\line-icon-hover.png" />
+    <Content Include="Admin_Panel\img\icons\line-icon.png" />
+    <Content Include="Admin_Panel\img\icons\search-line-icon.png" />
+    <Content Include="Admin_Panel\img\icons\social.png" />
+    <Content Include="Admin_Panel\img\icons\weather-hover.png" />
+    <Content Include="Admin_Panel\img\icons\weather.png" />
+    <Content Include="Admin_Panel\img\India.png" />
+    <Content Include="Admin_Panel\img\left-arrow.png" />
+    <Content Include="Admin_Panel\img\logo-big.png" />
+    <Content Include="Admin_Panel\img\mail-avatar.jpg" />
+    <Content Include="Admin_Panel\img\profile-avatar.jpg" />
+    <Content Include="Admin_Panel\img\profile-widget-avatar.jpg" />
+    <Content Include="Admin_Panel\img\right-arrow.png" />
+    <Content Include="Admin_Panel\img\Russia.png" />
+    <Content Include="Admin_Panel\img\sample-img-1.jpg" />
+    <Content Include="Admin_Panel\img\sample-img-2.png" />
+    <Content Include="Admin_Panel\img\sample-img-3.png" />
+    <Content Include="Admin_Panel\img\search-icon.jpg" />
+    <Content Include="Admin_Panel\img\Spain.png" />
+    <Content Include="Admin_Panel\img\user.jpg" />
+    <Content Include="Admin_Panel\img\user22.png" />
+    <Content Include="Admin_Panel\index.html" />
+    <Content Include="Admin_Panel\js\additional-methods.min.js" />
+    <Content Include="Admin_Panel\js\bootstrap-colorpicker.js" />
+    <Content Include="Admin_Panel\js\bootstrap-datepicker.js" />
+    <Content Include="Admin_Panel\js\bootstrap-switch.js" />
+    <Content Include="Admin_Panel\js\bootstrap-wysiwyg-custom.js" />
+    <Content Include="Admin_Panel\js\bootstrap-wysiwyg.js" />
+    <Content Include="Admin_Panel\js\bootstrap.js" />
+    <Content Include="Admin_Panel\js\bootstrap.min.js" />
+    <Content Include="Admin_Panel\js\calendar-custom.js" />
+    <Content Include="Admin_Panel\js\chartjs-custom.js" />
+    <Content Include="Admin_Panel\js\charts-flot.js" />
+    <Content Include="Admin_Panel\js\charts-other.js" />
+    <Content Include="Admin_Panel\js\charts-xcharts.js" />
+    <Content Include="Admin_Panel\js\charts.js" />
+    <Content Include="Admin_Panel\js\daterangepicker.js" />
+    <Content Include="Admin_Panel\js\dynamic-table.js" />
+    <Content Include="Admin_Panel\js\easy-pie-chart.js" />
+    <Content Include="Admin_Panel\js\excanvas.min.js" />
+    <Content Include="Admin_Panel\js\form-component.js" />
+    <Content Include="Admin_Panel\js\form-validation-script.js" />
+    <Content Include="Admin_Panel\js\fullcalendar.js" />
+    <Content Include="Admin_Panel\js\fullcalendar.min.js" />
+    <Content Include="Admin_Panel\js\ga.js" />
+    <Content Include="Admin_Panel\js\gdp-data.js" />
+    <Content Include="Admin_Panel\js\gritter.js" />
+    <Content Include="Admin_Panel\js\html5shiv.js" />
+    <Content Include="Admin_Panel\js\index.js" />
+    <Content Include="Admin_Panel\js\jquery-1.8.3.min.js" />
+    <Content Include="Admin_Panel\js\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Admin_Panel\js\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Admin_Panel\js\jquery-ui-1.10.4.min.js" />
+    <Content Include="Admin_Panel\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Admin_Panel\js\jquery.autosize.min.js" />
+    <Content Include="Admin_Panel\js\jquery.customSelect.min.js" />
+    <Content Include="Admin_Panel\js\jquery.flot.pie.js" />
+    <Content Include="Admin_Panel\js\jquery.hotkeys.js" />
+    <Content Include="Admin_Panel\js\jquery.js" />
+    <Content Include="Admin_Panel\js\jquery.localscroll.js" />
+    <Content Include="Admin_Panel\js\jquery.nicescroll.js" />
+    <Content Include="Admin_Panel\js\jquery.placeholder.min.js" />
+    <Content Include="Admin_Panel\js\jquery.rateit.min.js" />
+    <Content Include="Admin_Panel\js\jquery.scrollTo.min.js" />
+    <Content Include="Admin_Panel\js\jquery.slimscroll.min.js" />
+    <Content Include="Admin_Panel\js\jquery.smartWizard.js" />
+    <Content Include="Admin_Panel\js\jquery.sparkline-11.js" />
+    <Content Include="Admin_Panel\js\jquery.sparkline.js" />
+    <Content Include="Admin_Panel\js\jquery.stepy.js" />
+    <Content Include="Admin_Panel\js\jquery.tagsinput.js" />
+    <Content Include="Admin_Panel\js\jquery.validate.min.js" />
+    <Content Include="Admin_Panel\js\lte-ie7.js" />
+    <Content Include="Admin_Panel\js\moment.js" />
+    <Content Include="Admin_Panel\js\morris-script.js" />
+    <Content Include="Admin_Panel\js\morris.min.js" />
+    <Content Include="Admin_Panel\js\owl.carousel.js" />
+    <Content Include="Admin_Panel\js\scripts.js" />
+    <Content Include="Admin_Panel\js\sliders.js" />
+    <Content Include="Admin_Panel\js\sparkline-chart.js" />
+    <Content Include="Admin_Panel\js\sparklines.js" />
+    <Content Include="Admin_Panel\js\xcharts.min.js" />
+    <Content Include="Admin_Panel\login.html" />
+    <Content Include="Admin_Panel\profile.html" />
+    <Content Include="Admin_Panel\readme.txt" />
+    <Content Include="Admin_Panel\widgets.html" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminProductController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Admin_Panel\assets\chart-master\.gitignore" />
+    <Content Include="Admin_Panel\assets\chart-master\component.json" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\prettify.less" />
+    <Content Include="Admin_Panel\assets\chart-master\docs\styles.less" />
+    <Content Include="Admin_Panel\assets\chart-master\LICENSE.md" />
+    <Content Include="Admin_Panel\assets\chart-master\readme.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\CHANGES.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\LICENSE.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\README.md" />
+    <Content Include="Admin_Panel\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="Admin_Panel\assets\ckeditor\skins\moono\readme.md" />
+    <Content Include="Admin_Panel\assets\fullcalendar\demos\json-events.php" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\jquery.easy-pie-chart.coffee" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\Makefile" />
+    <Content Include="Admin_Panel\assets\jquery-easy-pie-chart\Readme.md" />
+    <Content Include="Admin_Panel\assets\jquery-knob\README.md" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\.gitignore" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\.travis.yml" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\component.json" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\less\morris.core.less" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.area.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.bar.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.donut.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.grid.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.hover.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\lib\morris.line.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\package.json" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\README.md" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\area\area_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\bar\bar_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\bar\colours.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\commas_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\donut\donut_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\grid\auto_grid_lines_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\grid\set_data_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\grid\y_label_format_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\hover_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\label_series_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\line\line_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\pad_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\lib\parse_time_spec.coffee" />
+    <Content Include="Admin_Panel\assets\morris.js-0.4.3\spec\support\placeholder.coffee" />
+    <Content Include="Admin_Panel\fonts\ElegantIcons.eot" />
+    <Content Include="Admin_Panel\fonts\ElegantIcons.ttf" />
+    <Content Include="Admin_Panel\fonts\ElegantIcons.woff" />
+    <Content Include="Admin_Panel\fonts\fontawesome-webfont.eot" />
+    <Content Include="Admin_Panel\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Admin_Panel\fonts\fontawesome-webfont.woff" />
+    <Content Include="Admin_Panel\fonts\FontAwesome.otf" />
+    <Content Include="Admin_Panel\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Admin_Panel\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Admin_Panel\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Game-Wave\.gitignore" />
+    <Content Include="Game-Wave\.git\COMMIT_EDITMSG" />
+    <Content Include="Game-Wave\.git\config" />
+    <Content Include="Game-Wave\.git\description" />
+    <Content Include="Game-Wave\.git\FETCH_HEAD" />
+    <Content Include="Game-Wave\.git\HEAD" />
+    <Content Include="Game-Wave\.git\hooks\applypatch-msg.sample" />
+    <Content Include="Game-Wave\.git\hooks\commit-msg.sample" />
+    <Content Include="Game-Wave\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="Game-Wave\.git\hooks\post-update.sample" />
+    <Content Include="Game-Wave\.git\hooks\pre-applypatch.sample" />
+    <Content Include="Game-Wave\.git\hooks\pre-commit.sample" />
+    <Content Include="Game-Wave\.git\hooks\pre-merge-commit.sample" />
+    <Content Include="Game-Wave\.git\hooks\pre-push.sample" />
+    <Content Include="Game-Wave\.git\hooks\pre-rebase.sample" />
+    <Content Include="Game-Wave\.git\hooks\pre-receive.sample" />
+    <Content Include="Game-Wave\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="Game-Wave\.git\hooks\push-to-checkout.sample" />
+    <Content Include="Game-Wave\.git\hooks\update.sample" />
+    <Content Include="Game-Wave\.git\index" />
+    <Content Include="Game-Wave\.git\info\exclude" />
+    <Content Include="Game-Wave\.git\logs\HEAD" />
+    <Content Include="Game-Wave\.git\logs\refs\heads\main" />
+    <Content Include="Game-Wave\.git\logs\refs\remotes\origin\HEAD" />
+    <Content Include="Game-Wave\.git\logs\refs\remotes\origin\main" />
+    <Content Include="Game-Wave\.git\objects\16\79a41593d311c47a666a3db06a7418540b087a" />
+    <Content Include="Game-Wave\.git\objects\20\8813c9e690725e572ebbb6e944a76f98e1d25d" />
+    <Content Include="Game-Wave\.git\objects\21\4f962e0bfa58145507c76c35de3b4828fd08d8" />
+    <Content Include="Game-Wave\.git\objects\21\aa05d9c496ff4c9b3bcaf9015e2b7c1a58a04b" />
+    <Content Include="Game-Wave\.git\objects\22\48c55571262dacf0cbb245170a7419d76d9a63" />
+    <Content Include="Game-Wave\.git\objects\29\b59fcfacdcadc83cd53eceebe42a7f8ef06e67" />
+    <Content Include="Game-Wave\.git\objects\42\b8114ef7d599c557ab5a681f7967cc5cc5854c" />
+    <Content Include="Game-Wave\.git\objects\4a\10153905f843e6dc53673780808c9d2f252d7e" />
+    <Content Include="Game-Wave\.git\objects\4a\caabc8720732b32bf29ad1d3fe9eab4281e6bb" />
+    <Content Include="Game-Wave\.git\objects\50\1848a8b5a5318a882e62e6151f7901bbb9e3e6" />
+    <Content Include="Game-Wave\.git\objects\50\2769bcca30446e4eae52072d320ec3a45855dd" />
+    <Content Include="Game-Wave\.git\objects\50\dcbb271185441c13845ee2eeea1cebf5fab6a8" />
+    <Content Include="Game-Wave\.git\objects\60\ed2b4752a8660f8f92fca9329c7ca8da5c098a" />
+    <Content Include="Game-Wave\.git\objects\65\1d37f290658f8bd54520ac1d42d9248cb0a67f" />
+    <Content Include="Game-Wave\.git\objects\83\8224af204465362529007a1c5531d7341a6140" />
+    <Content Include="Game-Wave\.git\objects\89\9546ddf60520ddd26e42b3bdb5048560c716e3" />
+    <Content Include="Game-Wave\.git\objects\8d\b70abb6a1f0984592d1aa353cc338951b2e5ea" />
+    <Content Include="Game-Wave\.git\objects\90\d40fd71289a7d3fc2f4e58e7d1ad747b98968b" />
+    <Content Include="Game-Wave\.git\objects\9d\90d2422983ea35a7b09593d5083031abd33245" />
+    <Content Include="Game-Wave\.git\objects\af\77a8fed387afc071e88619e0f83a13f8b1b00a" />
+    <Content Include="Game-Wave\.git\objects\b0\ebcfa37d0f10242461847ee7d64124c84bc4c5" />
+    <Content Include="Game-Wave\.git\objects\b8\bbe1b442295324cae6b72df069e8cfed558d5c" />
+    <Content Include="Game-Wave\.git\objects\b9\b616e41472a78279551f30c281e6de6df1ef50" />
+    <Content Include="Game-Wave\.git\objects\c1\637493b23c8f86bc932dc81c098ea7c22fd218" />
+    <Content Include="Game-Wave\.git\objects\cc\ac498a129fb358ed8b34286a7489310be78805" />
+    <Content Include="Game-Wave\.git\objects\d4\2f6071e0e09c183106f2262951c373f7539941" />
+    <Content Include="Game-Wave\.git\objects\d5\84169fe02c81e9a1180f3f543b34005662a25c" />
+    <Content Include="Game-Wave\.git\objects\e3\3d79af2ab39dbbfdce48f819ad7437e19748a2" />
+    <Content Include="Game-Wave\.git\objects\f0\2dc46d9ebc456e4404b8cc8e0a7ec0e4925828" />
+    <Content Include="Game-Wave\.git\objects\f0\b89d0be0243d9f3b143a02c59a486070c3f6b1" />
+    <Content Include="Game-Wave\.git\objects\f9\a7a833b1b27af77a2ab71f3f06c497744b17a1" />
+    <Content Include="Game-Wave\.git\objects\pack\pack-8e190a7e0ba2f9bc7b558f0ca6b3b0146f8f0b61.idx" />
+    <Content Include="Game-Wave\.git\objects\pack\pack-8e190a7e0ba2f9bc7b558f0ca6b3b0146f8f0b61.pack" />
+    <Content Include="Game-Wave\.git\ORIG_HEAD" />
+    <Content Include="Game-Wave\.git\packed-refs" />
+    <Content Include="Game-Wave\.git\refs\heads\main" />
+    <Content Include="Game-Wave\.git\refs\remotes\origin\HEAD" />
+    <Content Include="Game-Wave\.git\refs\remotes\origin\main" />
+    <Content Include="Game-Wave\README.md" />
+    <Content Include="eshop\fonts\fontawesome-webfont.woff" />
+    <Content Include="eshop\fonts\FontAwesome.otf" />
+    <Content Include="eshop\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="eshop\sendemail.php" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\AdminCategory\Index.cshtml" />
+    <Content Include="Views\AdminCategory\Create.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\AdminCategory\Update.cshtml" />
+    <Content Include="Views\AdminProduct\Index.cshtml" />
+    <Content Include="Views\AdminProduct\Create.cshtml" />
+    <Content Include="Views\AdminProduct\Update.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Category\CategoryList.cshtml" />
+    <Content Include="Views\Product\PopularProduct.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Product\ProductDetails.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Game-Wave\.git\objects\info\" />
+    <Folder Include="Game-Wave\.git\refs\tags\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{0e13efee-56d3-4344-82e0-ee4a05ceadbc}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{647f8d02-6e9c-4d09-a194-0273f074ea50}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{25bb7496-6a76-4bb1-a298-b7a476daa8d8}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60664</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44374/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
