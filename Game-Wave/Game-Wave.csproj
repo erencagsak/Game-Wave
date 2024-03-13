@@ -119,102 +119,15 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="eshop\404.html" />
-    <Content Include="eshop\blog-single.html" />
-    <Content Include="eshop\blog.html" />
-    <Content Include="eshop\cart.html" />
-    <Content Include="eshop\checkout.html" />
-    <Content Include="eshop\contact-us.html" />
-    <Content Include="eshop\css\animate.css" />
-    <Content Include="eshop\css\bootstrap.min.css" />
-    <Content Include="eshop\css\font-awesome.min.css" />
-    <Content Include="eshop\css\main.css" />
-    <Content Include="eshop\css\prettyPhoto.css" />
-    <Content Include="eshop\css\price-range.css" />
-    <Content Include="eshop\css\responsive.css" />
-    <Content Include="eshop\fonts\fontawesome-webfont.svg" />
-    <Content Include="eshop\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="eshop\images\404\404.png" />
-    <Content Include="eshop\images\blog\blog-one.jpg" />
-    <Content Include="eshop\images\blog\blog-three.jpg" />
-    <Content Include="eshop\images\blog\blog-two.jpg" />
-    <Content Include="eshop\images\blog\man-four.jpg" />
-    <Content Include="eshop\images\blog\man-one.jpg" />
-    <Content Include="eshop\images\blog\man-three.jpg" />
-    <Content Include="eshop\images\blog\man-two.jpg" />
-    <Content Include="eshop\images\blog\socials.png" />
-    <Content Include="eshop\images\cart\one.png" />
-    <Content Include="eshop\images\cart\three.png" />
-    <Content Include="eshop\images\cart\two.png" />
-    <Content Include="eshop\images\home\bg_border.png" />
-    <Content Include="eshop\images\home\gallery1.jpg" />
-    <Content Include="eshop\images\home\gallery2.jpg" />
-    <Content Include="eshop\images\home\gallery3.jpg" />
-    <Content Include="eshop\images\home\gallery4.jpg" />
-    <Content Include="eshop\images\home\girl1.jpg" />
-    <Content Include="eshop\images\home\girl2.jpg" />
-    <Content Include="eshop\images\home\girl3.jpg" />
-    <Content Include="eshop\images\home\iframe1.png" />
-    <Content Include="eshop\images\home\iframe2.png" />
-    <Content Include="eshop\images\home\iframe3.png" />
-    <Content Include="eshop\images\home\iframe4.png" />
-    <Content Include="eshop\images\home\logo.png" />
-    <Content Include="eshop\images\home\map.png" />
-    <Content Include="eshop\images\home\new.png" />
-    <Content Include="eshop\images\home\partner1.png" />
-    <Content Include="eshop\images\home\partner2.png" />
-    <Content Include="eshop\images\home\partner3.png" />
-    <Content Include="eshop\images\home\partner4.png" />
-    <Content Include="eshop\images\home\pricing.png" />
-    <Content Include="eshop\images\home\product1.jpg" />
-    <Content Include="eshop\images\home\product2.jpg" />
-    <Content Include="eshop\images\home\product3.jpg" />
-    <Content Include="eshop\images\home\product4.jpg" />
-    <Content Include="eshop\images\home\product5.jpg" />
-    <Content Include="eshop\images\home\product6.jpg" />
-    <Content Include="eshop\images\home\recommend1.jpg" />
-    <Content Include="eshop\images\home\recommend2.jpg" />
-    <Content Include="eshop\images\home\recommend3.jpg" />
-    <Content Include="eshop\images\home\sale.png" />
-    <Content Include="eshop\images\home\searchicon.png" />
-    <Content Include="eshop\images\home\shipping.jpg" />
-    <Content Include="eshop\images\product-details\1.jpg" />
-    <Content Include="eshop\images\product-details\new.jpg" />
-    <Content Include="eshop\images\product-details\rating.png" />
-    <Content Include="eshop\images\product-details\share.png" />
-    <Content Include="eshop\images\product-details\similar1.jpg" />
-    <Content Include="eshop\images\product-details\similar2.jpg" />
-    <Content Include="eshop\images\product-details\similar3.jpg" />
-    <Content Include="eshop\images\shop\advertisement.jpg" />
-    <Content Include="eshop\images\shop\product10.jpg" />
-    <Content Include="eshop\images\shop\product11.jpg" />
-    <Content Include="eshop\images\shop\product12.jpg" />
-    <Content Include="eshop\images\shop\product7.jpg" />
-    <Content Include="eshop\images\shop\product8.jpg" />
-    <Content Include="eshop\images\shop\product9.jpg" />
-    <Content Include="eshop\index.html" />
-    <Content Include="eshop\js\bootstrap.min.js" />
-    <Content Include="eshop\js\contact.js" />
-    <Content Include="eshop\js\gmaps.js" />
-    <Content Include="eshop\js\html5shiv.js" />
-    <Content Include="eshop\js\jquery.js" />
-    <Content Include="eshop\js\jquery.prettyPhoto.js" />
-    <Content Include="eshop\js\jquery.scrollUp.min.js" />
-    <Content Include="eshop\js\main.js" />
-    <Content Include="eshop\js\price-range.js" />
-    <Content Include="eshop\login.html" />
-    <Content Include="eshop\product-details.html" />
-    <Content Include="eshop\shop.html" />
+    <Content Include="Game-Wave\images\banner.jpg" />
+    <Content Include="Game-Wave\login.html" />
     <Content Include="Game-Wave\styles\animate.css" />
     <Content Include="Game-Wave\styles\bootstrap.min.css" />
     <Content Include="Game-Wave\styles\font-awesome.min.css" />
+    <Content Include="Game-Wave\styles\login_style.css" />
     <Content Include="Game-Wave\styles\main.css" />
     <Content Include="Game-Wave\images\Header_Background.jpg" />
     <Content Include="Game-Wave\images\Logo.png" />
-    <Content Include="Game-Wave\images\menu-1.png" />
-    <Content Include="Game-Wave\images\menu-2.png" />
-    <Content Include="Game-Wave\images\menu-3.png" />
-    <Content Include="Game-Wave\images\menu-4.png" />
     <Content Include="Game-Wave\index.html" />
     <Content Include="Game-Wave\styles\prettyPhoto.css" />
     <Content Include="Game-Wave\styles\price-range.css" />
@@ -710,6 +623,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminProductController.cs" />
@@ -720,6 +634,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -860,10 +775,6 @@
     <Content Include="Game-Wave\.git\refs\remotes\origin\HEAD" />
     <Content Include="Game-Wave\.git\refs\remotes\origin\main" />
     <Content Include="Game-Wave\README.md" />
-    <Content Include="eshop\fonts\fontawesome-webfont.woff" />
-    <Content Include="eshop\fonts\FontAwesome.otf" />
-    <Content Include="eshop\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="eshop\sendemail.php" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
@@ -886,6 +797,7 @@
     <Content Include="Views\Product\PopularProduct.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Product\ProductDetails.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -913,6 +825,9 @@
       <Project>{25bb7496-6a76-4bb1-a298-b7a476daa8d8}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

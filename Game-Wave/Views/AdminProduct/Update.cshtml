@@ -10,50 +10,44 @@
         <div class="col-md-6">
             <form method="post" enctype="multipart/form-data">
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "btn btn-danger" })
                 <div class="form-group">
                     <label>Ad</label>
                     <input type="text" class="form-control" name="Name" value="@Model.Name" />
-                    @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Açıklama</label>
                     <input type="text" class="form-control" name="Description" value="@Model.Description" />
-                    @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color:red" })
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Önceki Resim</label>
-                    <img src="~/Content/images/@Model.Image" width="70" height="70"/>
+                    <img src="~/Content/images/@Model.Image" width="70" height="70" />
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Resim</label>
                     <input type="file" class="form-control" name="File" />
-                    @Html.ValidationMessageFor(x => x.Image, "", new { @style = "color:red" })
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Fiyat</label>
                     <input type="text" class="form-control" name="Price" value="@Model.Price" />
-                    @Html.ValidationMessageFor(x => x.Price, "", new { @style = "color:red" })
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Stok</label>
                     <input type="text" class="form-control" name="Stock" value="@Model.Stock" />
-                    @Html.ValidationMessageFor(x => x.Stock, "", new { @style = "color:red" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Youtube Link</label>
+                    <input type="text" class="form-control" name="youtubeLink" />
                 </div>
                 <br />
                 <div class="form-group">
                     <label>Popüler</label>
                     @Html.EditorFor(x => x.Popular)
-                </div>
-                <br />
-                <div class="form-group">
-                    <label>Onay</label>
-                    @Html.EditorFor(x => x.IsApproved)
                 </div>
                 <br />
                 <div class="form-group">

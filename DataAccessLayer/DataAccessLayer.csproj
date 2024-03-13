@@ -52,9 +52,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\DataContext.cs" />
-    <Compile Include="Migrations\202403081716066_DataAccesLayer.cs" />
-    <Compile Include="Migrations\202403081716066_DataAccesLayer.Designer.cs">
-      <DependentUpon>202403081716066_DataAccesLayer.cs</DependentUpon>
+    <Compile Include="Migrations\202403121623027_Delete.cs" />
+    <Compile Include="Migrations\202403121623027_Delete.Designer.cs">
+      <DependentUpon>202403121623027_Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403121629196_Update.cs" />
+    <Compile Include="Migrations\202403121629196_Update.Designer.cs">
+      <DependentUpon>202403121629196_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403121633549_Add.cs" />
+    <Compile Include="Migrations\202403121633549_Add.Designer.cs">
+      <DependentUpon>202403121633549_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403121637107_Add2.cs" />
+    <Compile Include="Migrations\202403121637107_Add2.Designer.cs">
+      <DependentUpon>202403121637107_Add2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403121638453_Add3.cs" />
+    <Compile Include="Migrations\202403121638453_Add3.Designer.cs">
+      <DependentUpon>202403121638453_Add3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403121640378_Update1.cs" />
+    <Compile Include="Migrations\202403121640378_Update1.Designer.cs">
+      <DependentUpon>202403121640378_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403121655513_Update2.cs" />
+    <Compile Include="Migrations\202403121655513_Update2.Designer.cs">
+      <DependentUpon>202403121655513_Update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403131454589_UpdateEt.cs" />
+    <Compile Include="Migrations\202403131454589_UpdateEt.Designer.cs">
+      <DependentUpon>202403131454589_UpdateEt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403131919056_deneme.cs" />
+    <Compile Include="Migrations\202403131919056_deneme.Designer.cs">
+      <DependentUpon>202403131919056_deneme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403131920336_d.cs" />
+    <Compile Include="Migrations\202403131920336_d.Designer.cs">
+      <DependentUpon>202403131920336_d.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,15 +100,42 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403081716066_DataAccesLayer.resx">
-      <DependentUpon>202403081716066_DataAccesLayer.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{25bb7496-6a76-4bb1-a298-b7a476daa8d8}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202403121623027_Delete.resx">
+      <DependentUpon>202403121623027_Delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403121629196_Update.resx">
+      <DependentUpon>202403121629196_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403121633549_Add.resx">
+      <DependentUpon>202403121633549_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403121637107_Add2.resx">
+      <DependentUpon>202403121637107_Add2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403121638453_Add3.resx">
+      <DependentUpon>202403121638453_Add3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403121640378_Update1.resx">
+      <DependentUpon>202403121640378_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403121655513_Update2.resx">
+      <DependentUpon>202403121655513_Update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403131454589_UpdateEt.resx">
+      <DependentUpon>202403131454589_UpdateEt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403131919056_deneme.resx">
+      <DependentUpon>202403131919056_deneme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403131920336_d.resx">
+      <DependentUpon>202403131920336_d.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

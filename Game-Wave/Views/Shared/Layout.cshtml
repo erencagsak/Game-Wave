@@ -31,29 +31,32 @@
         <!-- Menüler -->
         <nav class="navbar">
             <ul class="menu-list">
-                <li><a href="#" class="active">Ana Sayfa</a></li>
+                <li><a href="/Home/Index" class="active">Ana Sayfa</a></li>
                 <li><a href="#">Hakkımda</a></li>
                 <li><a href="#">İletişim</a></li>
-                <li><a href="#">Kullanıcı Sayfası</a></li>
-                <li><a href="#">Yönetici Sayfası</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href="#">Kullanıcı Sayfası</a></li>
+                    <li><a href="#">Sepetim</a></li>
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href="#">Yönetici Sayfası</a></li>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href=""><i class="fa fa-user"></i>@Session["Ad"] @Session["Soyad"]</a></li>
+
+                    <li><i class="fa-solid fa-right-from-bracket"><a href="/Account/CikisYap">Çıkış Yap</a></i></li>
+                }
+                else
+                {
+                    <li><i class="fa-solid fa-right-to-bracket"><a href="/Account/Login" class="active">Giriş Yap</a></i></li>
+                }
+
             </ul>
         </nav>
 
-        <!-- Üst Bar Butonlar ( Arama ve Satın Alma ) -->
-        <div class="buttons">
-            <!-- Üst Bar Butonlar ( Arama ) -->
-            <button>
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-            <!-- Üst Bar Butonlar ( Satın Alma ) -->
-            <button>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </button>
-            <!-- Üst Bar Butonlar ( Bar ) -->
-            <button>
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
     </header>
 
     <!-- Ortadaki yazı -->

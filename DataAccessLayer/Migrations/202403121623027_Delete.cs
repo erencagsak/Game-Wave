@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DataAccesLayer : DbMigration
+    public partial class Delete : DbMigration
     {
         public override void Up()
         {
@@ -36,13 +36,12 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Description = c.String(nullable: false, maxLength: 50),
+                        Name = c.String(nullable: false, maxLength: 50),
                         Price = c.String(nullable: false),
                         Stock = c.Int(nullable: false),
                         Popular = c.Boolean(nullable: false),
                         IsApproved = c.Boolean(nullable: false),
                         Image = c.String(nullable: false),
-                        Quantity = c.Int(nullable: false),
                         CategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

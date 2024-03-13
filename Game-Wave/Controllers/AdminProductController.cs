@@ -26,36 +26,37 @@ namespace Game_Wave.Controllers
 
         public ActionResult Create()
         {
-            List<SelectListItem> deger1 = (from i in db.Categories.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = i.Name,
-                                               Value = i.Id.ToString()
-                                           }).ToList();
-            ViewBag.ktgr = deger1;
+            List<SelectListItem> categories = (from i in db.Categories.ToList()
+                                               select new SelectListItem
+                                               {
+                                                   Text = i.Name,
+                                                   Value = i.Id.ToString()
+                                               }).ToList();
+            ViewBag.ktgr = categories;
             return View();
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Create(Product data, HttpPostedFileBase File) 
+        public ActionResult Create(Product data, HttpPostedFileBase File)
         {
-            if (!ModelState.IsValid)
+            if (File != null && File.ContentLength > 0)
             {
-                string path = Path.Combine("~/Content/images/" + File.FileName);
+                string fileName = Path.GetFileName(File.FileName);
+                string path = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
 
-                File.SaveAs(Server.MapPath(path));
+                File.SaveAs(path);
 
-                data.Image = File.FileName.ToString();
+                data.Image = fileName;
 
                 productRepository.Insert(data);
 
                 return RedirectToAction("Index");
             }
 
+            ModelState.AddModelError("", "Lütfen bir dosya seçin.");
             return View(data);
         }
-
         public ActionResult Delete(int id) 
         {
             var delete = productRepository.GetById(id);
@@ -90,23 +91,15 @@ namespace Game_Wave.Controllers
             {
                 if (File == null)
                 {
-                    string path = Path.Combine("~/Content/images/" + File.FileName);
-
-                    File.SaveAs(Server.MapPath(path));
-
                     update.Description = data.Description;
 
                     update.Name = data.Name;
 
                     update.Price = data.Price;
 
-                    update.IsApproved = data.IsApproved;
-
                     update.Popular = data.Popular;
 
                     update.Stock = data.Stock;
-
-                    update.Image = File.FileName.ToString();
 
                     update.CategoryId = data.CategoryId;
 
@@ -116,7 +109,7 @@ namespace Game_Wave.Controllers
                 }
                 else
                 {
-                    string path = Path.Combine("~/Content/images/" + File.FileName);
+                    string path = Path.Combine("~/Content/images/", File.FileName);
 
                     File.SaveAs(Server.MapPath(path));
 
@@ -126,22 +119,21 @@ namespace Game_Wave.Controllers
 
                     update.Price = data.Price;
 
-                    update.IsApproved = data.IsApproved;
-
                     update.Popular = data.Popular;
 
                     update.Stock = data.Stock;
 
                     update.Image = File.FileName.ToString();
 
+                    update.youtubeLink = data.youtubeLink;
+
                     update.CategoryId = data.CategoryId;
 
-                    productRepository.Update(data);
+                    productRepository.Update(update);
 
                     return RedirectToAction("Index");
-                }
+                }    
             }
-
             return View(update);
         }
     }

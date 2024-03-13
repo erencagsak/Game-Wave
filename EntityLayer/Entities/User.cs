@@ -34,16 +34,8 @@ namespace EntityLayer.Entities
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Şifre")]
-        [StringLength(10, ErrorMessage = "Maksimum 10 karakter olmalıdır !")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        [Required(ErrorMessage = "Boş Geçilemez !")]
-        [Display(Name = "Şifre")]
-        [StringLength(10, ErrorMessage = "Maksimum 10 karakter olmalıdır !")]
-        [DataType(DataType.Password)]
-        [Compare("Password",ErrorMessage ="Şifreler uyuşmuyor.")]
-        public string RePassword { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Rol")]

@@ -1,0 +1,87 @@
+﻿@model EntityLayer.Entities.User
+
+@{
+    Layout = null;
+}
+
+<head>
+    <link rel="stylesheet" href="~/Game-Wave/styles/login_style.css">
+</head>
+
+<body background="~/Game-Wave/images/banner.jpg">
+</body>
+
+<br>
+<br>
+<div class="cont">
+    <!-- Giriş sayfası -->
+    <div class="form sign-in">
+        <h2>Hoşgeldiniz</h2>
+        <form action="/Account/Login" method="post">
+            <label>
+                <span style="color: black;">E-Mail</span>
+                <input type="email" name="Email" />
+            </label>
+            <label>
+                <span style="color: black;">Şifre</span>
+                <input type="password" name="Password" />
+            </label>
+            <p class="forgot-pass" style="color: black;">Şifreni mi unuttun?</p>
+            <button type="submit" class="submit">Giriş Yap</button>
+        </form>
+    </div>
+    <!--/ Giriş sayfası -->
+
+    <!-- Kayıt olma sayfası -->
+    <div class="sub-cont">
+        <form action="/Account/Register" method="post">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h3 style="color: black;">Bir hesabın yok mu? Kayıt ol !</h3>
+                </div>
+                <div class="img__text m--in">
+                    <h3 style="color: black;">Zaten bir hesabın varsa, Giriş yap.</h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Kayıt Ol</span>
+                    <span class="m--in">Giriş Yap</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2 style="color: black;">Hesap oluştur</h2>
+                <label>
+                    <span style="color: black;">İsim</span>
+                    <input type="text" name="Name" />
+                    @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
+                </label>
+                <label>
+                    <span style="color: black;">Soyisim</span>
+                    <input type="text" name="Surname" />
+                    @Html.ValidationMessageFor(x => x.Surname, "", new { @style = "color:red" })
+                </label>
+                <label>
+                    <span style="color: black;">E-Mail</span>
+                    <input type="email" name="Email" />
+                    @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
+                </label>
+                <label>
+                    <span style="color: black;">Username</span>
+                    <input type="text" name="Username" />
+                    @Html.ValidationMessageFor(x => x.UserName, "", new { @style = "color:red" })
+                </label>
+                <label>
+                    <span style="color: black;">Şifre</span>
+                    <input type="password" name="Password" />
+                    @Html.ValidationMessageFor(x => x.Password, "", new { @style = "color:red" })
+                </label>
+                <button type="submit" class="submit">Kayıt ol</button>
+            </div>
+        </form>
+    </div>
+    <!--/ Kayıt olma sayfası -->
+</div>
+<script>
+    document.querySelector('.img__btn').addEventListener('click', function () {
+        document.querySelector('.cont').classList.toggle('s--signup');
+    });
+</script>

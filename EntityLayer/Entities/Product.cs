@@ -17,25 +17,20 @@ namespace EntityLayer.Entities
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
-        [Display(Name = "Açıklama")]
-        [StringLength(50, ErrorMessage = "Maksimum 50 karakter olmalıdır !")]
-        public string Description { get; set; }
-
-        [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Fiyat")]
         public string Price { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
-        [Display(Name = "Fiyat")]
+        [Display (Name ="Açıklama")]
+        public string Description {  get; set; }
+
+        [Required(ErrorMessage = "Boş Geçilemez !")]
+        [Display(Name = "Stok")]
         public int Stock { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Popüler")]
         public bool Popular { get; set; }
-
-        [Required(ErrorMessage = "Boş Geçilemez !")]
-        [Display(Name = "Onay")]
-        public bool IsApproved { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Resim")]
@@ -44,6 +39,9 @@ namespace EntityLayer.Entities
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Kategori")]
         public int CategoryId { get; set; }
+
+        [Display(Name = "YoutubeLink")]
+        public string youtubeLink { get; set; }
         public virtual Category Category { get; set; }
     }
 }
