@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="~/Game-Wave/styles/login_style.css">
 </head><!--/head-->
 
 <body>
@@ -34,7 +35,16 @@
                 <br />
                 <p><b>Kategori:</b> @Model.Category.Name</p>
                 <p><b>Stok:</b> @Model.Stock</p>
-                <p><b>Popüler mi ?:</b> @Model.Popular</p>
+                <p><b>Popüler mi ?:</b>
+                @if (Model.Popular == true)
+                {
+                    <b style="color:lawngreen">Evet</b>
+                }
+                else
+                {
+                    <b style="color:darkred">Hayır</b>
+                }
+                </p>
                 <br />
                 <br />
                 <iframe src="@Model.youtubeLink"></iframe>
@@ -54,58 +64,35 @@
         </div>
     </section>
     <section>
-        <div class="box-head" style="color: #428bca; text-transform: uppercase; font-size: 4rem; margin-bottom: -5rem;">
-        </div>
-        <div style="border: 1px solid #428bca; display: flex;">
-            <div style="flex: 1;">
-                <p style="margin: 8px;">
-                <p><b>YORUMLAR ALANI</b></p>
+        <form action="/Product/Comment" method="post">
+            <div style="border: 1px solid #428bca; display: flex">
+                <div style="flex: 1">
+                    <textarea style="width: 979px; background-color: #ffffff" name="Content" placeholder="Yorum yazınız..."></textarea>
+                    <input type="hidden" name="ProductId" value="@Model.Id" />
+                    <input type="hidden" name="UserId" value="@Session["userId"]" />
+                    <input type="hidden" name="Date" value="@DateTime.Now" />
+                    <button type="submit" class="submit" style="width:100px">Yorum Yap</button>
+                </div>
             </div>
-            <div style="flex: 1; padding: 20px;">
+        </form>
+    </section>
+    <section>
+        <div style="border: 1px solid #428bca; display:flex; padding:5px">
+            <div style="flex: 1">
+                @foreach (var item in ViewBag.yorum)
+                {
+                    <h4 style="color: #428bca">
+                        Kullanıcı: <a style="color:black">@item.User.Name @item.User.Surname</a>
+                    </h4>
+                    <a style="color:dimgray;padding:40px;">@item.Date</a>
+                    <br />
+                    <br />
+                    <p><b>@item.Content</b></p>
+
+                    <div style="border-bottom: 1px solid #428bca; padding-bottom: 10px;"></div>
+                }
             </div>
         </div>
     </section>
-    @*<script src="~/eshop/js/jquery.js"></script>
-        <script src="~/eshop/js/price-range.js"></script>
-        <script src="~/eshop/js/jquery.scrollUp.min.js"></script>
-        <script src="~/eshop/js/bootstrap.min.js"></script>
-        <script src="~/eshop/js/jquery.prettyPhoto.js"></script>
-        <script src="~/eshop/js/main.js"></script>*@
-
-    @*<script type="text/javascript">
-            $(document).ready(function () {
-                $("#gonder").click(function () {
-                    bootbox.confirm("Yorumunuz gönderiliyor emin misiniz?", function (result) {
-                        if (result) {
-                            var icerikgir = $("#icerikgir").val();
-                            var userName = $("#userName").val();
-
-
-                            $.ajax({
-
-                                url: '/Product/Comment/',
-                                data: { icerik: icerikgir, productid:@Model.Id , username:userName},
-                                 type: 'POST',
-                                    dataType: 'json',
-                                    success: function (data) {
-
-
-                                }
-                                });
-                        }
-                        else
-                        {
-                            bootbox.confirm("Hata oluştu")
-                        }
-                    })
-
-
-                });
-            })
-        </script>*@
 </body>
 </html>
-
-
-
-

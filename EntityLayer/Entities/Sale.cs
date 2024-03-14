@@ -13,6 +13,7 @@ namespace EntityLayer.Entities
 
         [Display(Name = "Ürün")]
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         [Display(Name = "Adet")]
         public int Quantity { get; set; }

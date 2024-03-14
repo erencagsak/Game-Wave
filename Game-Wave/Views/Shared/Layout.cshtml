@@ -37,11 +37,16 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li><a href="#">Kullanıcı Sayfası</a></li>
-                    <li><a href="#">Sepetim</a></li>
+                    <li>
+                        <a href="/Cart/Index">@{Html.RenderAction("TotalCount", "Cart");}<i class="fa-solid fa-basket-shopping" style="color: #ff0000;"></i>
+                        Sepetim
+                        </a>
+                    </li>
+
                 }
                 @if (User.IsInRole("Admin"))
                 {
-                    <li><a href="#">Yönetici Sayfası</a></li>
+                    <li><a href="/Admin/Index">Yönetici Sayfası</a></li>
                 }
                 @if (User.Identity.IsAuthenticated)
                 {

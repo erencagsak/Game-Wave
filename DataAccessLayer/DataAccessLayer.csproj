@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202403131920336_d.Designer.cs">
       <DependentUpon>202403131920336_d.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403141356052_cart.cs" />
+    <Compile Include="Migrations\202403141356052_cart.Designer.cs">
+      <DependentUpon>202403141356052_cart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403131920336_d.resx">
       <DependentUpon>202403131920336_d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403141356052_cart.resx">
+      <DependentUpon>202403141356052_cart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

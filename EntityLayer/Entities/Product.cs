@@ -18,7 +18,7 @@ namespace EntityLayer.Entities
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Fiyat")]
-        public string Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display (Name ="Açıklama")]
@@ -39,9 +39,12 @@ namespace EntityLayer.Entities
         [Required(ErrorMessage = "Boş Geçilemez !")]
         [Display(Name = "Kategori")]
         public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
 
         [Display(Name = "YoutubeLink")]
         public string youtubeLink { get; set; }
-        public virtual Category Category { get; set; }
+        
+        public virtual List<Cart> Cart { get; set; }
+        public virtual List<Sale> Sale { get; set; }
     }
 }
