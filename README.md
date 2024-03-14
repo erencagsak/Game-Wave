@@ -14,3 +14,10 @@ This section showing popular games. - 10.03.2024 23.00
 ![Ekran Görüntüsü (152)](https://github.com/erencagsak/Game-Wave/assets/72644593/8dc3d214-13c4-4d36-81f1-6ecd5bcd63ab)
 
 Details section added ( still updating... ) - 11.03.2024 to ...
+![Ekran Görüntüsü (177)](https://github.com/erencagsak/Game-Wave/assets/72644593/f3502683-4840-4d80-8bab-441f453c8564)
+
+New Sign in-Sign up Page - 13.03.2024 - 23:45
+![Ekran Görüntüsü (174)](https://github.com/erencagsak/Game-Wave/assets/72644593/001e22ab-13a0-473a-a0fb-228bc5dc5845) | ![Ekran Görüntüsü (175)](https://github.com/erencagsak/Game-Wave/assets/72644593/1b2f5602-bce0-42ff-8d26-a8aaa7e4124b)
+
+New navbard added - 13.03.2024 - 23:45
+![Ekran Görüntüsü (176)](https://github.com/erencagsak/Game-Wave/assets/72644593/52c46c9b-530f-41d3-8889-f5aa87985982)
