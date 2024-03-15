@@ -74,6 +74,7 @@ namespace Game_Wave.Controllers
                         UserId = model.Id,
                         ProductId = urun.Id,
                         Quantity = 1,
+                        Image = urun.Image,
                         Price = urun.Price,
                         Date = DateTime.Now
                     };
