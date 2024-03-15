@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<body>
+    <div class="total-content">
+        <div class="sales" style="background-color:#1abc9c">
+            <div class="icon-text">
+                <h3>@ViewBag.satis</h3>
+                <p>Toplam Satışlar</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="new-users" style="background-color:#2ecc71">
+            <div class="icon-text">
+                <h3>@ViewBag.urun</h3>
+                <p>Ürün Sayısı</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="orders" style="background-color:#3498db">
+            <div class="icon-text">
+                <h3>@ViewBag.kategori</h3>
+                <p>Kategori Sayısı</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="visitors" style="background-color:#9b59b6">
+            <div class="icon-text">
+                <h3>@ViewBag.sepet</h3>
+                <p>Sepet Sayısı</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="visitors" style="background-color:#ff6a00; margin-top:10px">
+            <div class="icon-text">
+                <h3>@ViewBag.kullanici</h3>
+                <p>Kullanıcı Sayısı</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</body>
+

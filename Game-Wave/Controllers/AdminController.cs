@@ -34,5 +34,20 @@ namespace Game_Wave.Controllers
 
             return RedirectToAction("Comment");
         }
+
+        public ActionResult UserList() 
+        {
+            var user = db.Users.Where(x => x.Role == "User").ToList();
+
+            return View(user);
+        }
+
+        public ActionResult UserDelete(int id)
+        {
+            var userid = db.Users.Where(x => x.Id == id).FirstOrDefault();
+            db.Users.Remove(userid);
+            db.SaveChanges();
+            return RedirectToAction("UserList");
+        }
     }
 }
