@@ -21,10 +21,10 @@ namespace EntityLayer.Entities
         [StringLength(50, ErrorMessage = "Maksimum 50 karakter olmalıdır !")]
         public string Surname { get; set; }
 
-        [Required(ErrorMessage = "Boş Geçilemez !")]
-        [Display(Name = "E-posta")]
-        [StringLength(50, ErrorMessage = "Maksimum 50 karakter olmalıdır !")]
-        [EmailAddress(ErrorMessage ="E-mail formatına uygun şekilde giriniz.")]
+        //[Required(ErrorMessage = "Boş Geçilemez !")]
+        //[Display(Name = "E-posta")]
+        //[StringLength(50, ErrorMessage = "Maksimum 50 karakter olmalıdır !")]
+        //[EmailAddress(ErrorMessage ="E-mail formatına uygun şekilde giriniz.")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
@@ -32,9 +32,9 @@ namespace EntityLayer.Entities
         [StringLength(50, ErrorMessage = "Maksimum 50 karakter olmalıdır !")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Boş Geçilemez !")]
-        [Display(Name = "Şifre")]
-        [DataType(DataType.Password)]
+        //[Required(ErrorMessage = "Boş Geçilemez !")]
+        //[Display(Name = "Şifre")]
+        //[DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Boş Geçilemez !")]
