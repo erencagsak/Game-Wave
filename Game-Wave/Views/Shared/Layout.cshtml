@@ -36,7 +36,6 @@
                 <li><a href="#">İletişim</a></li>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li><a href="#">Kullanıcı Sayfası</a></li>
                     <li>
                         <a href="/Cart/Index">@{Html.RenderAction("TotalCount", "Cart");}<i class="fa-solid fa-basket-shopping" style="color: #ff0000;"></i>
                         Sepetim
@@ -50,7 +49,7 @@
                 }
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li><a href=""><i class="fa fa-user"></i>@Session["Ad"] @Session["Soyad"]</a></li>
+                    <li><a href="/User/Index"><i class="fa fa-user"></i>@Session["Ad"] @Session["Soyad"]</a></li>
 
                     <li><i class="fa-solid fa-right-from-bracket"><a href="/Account/CikisYap">Çıkış Yap</a></i></li>
                 }

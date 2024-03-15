@@ -810,6 +810,7 @@
     <Content Include="Views\Sales\Buy.cshtml" />
     <Content Include="Views\Sales\BuyAll.cshtml" />
     <Content Include="Views\AdminSales\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -823,7 +824,6 @@
     <Folder Include="Game-Wave\.git\objects\info\" />
     <Folder Include="Game-Wave\.git\refs\tags\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
