@@ -5,13 +5,73 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- BAŞLIK -->
     <title>Game Wave | Alışveriş Sepeti</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
+    <!--/ BAŞLIK -->
+
+    <!-- IKON CDN LINKLERI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--/ IKON CDN LINKLERI-->
+
+    <!-- CSS DOSYALARI -->
+    <link rel="stylesheet" href="~/Game-Wave/styles/style.css">
+    <link href="~/Game-Wave/styles/bootstrap.min.css" rel="stylesheet" />
+    <!--/ CSS DOSYALARI -->
 </head>
 
-<h2>@Session["Ad"] @Session["Soyad"]</h2>
+<body>
+    <!-- UST BOLUM -->
+    <header class="header">
 
-    <h3>Sepetim</h3>
+        <!-- LOGO -->
+        <a href="#" class="logo">
+            <img src="~/Game-Wave/images/Logo.png" alt="logo" />
+        </a>
+        <!--/ LOGO -->
+
+        <!-- NAV BAR -->
+        <nav class="navbar">
+            <ul class="menu-list">
+                <li><a href="/Home/Index" class="active">Ana Sayfa</a></li>
+                <li><a href="#">Hakkımda</a></li>
+                <li><a href="#">İletişim</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <a href="/Cart/Index">
+                            @{Html.RenderAction("TotalCount", "Cart");}<i class="fa-solid fa-basket-shopping" style="color: #ff0000;"></i>
+                            Sepetim
+                        </a>
+                    </li>
+
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href="/Admin/Index">Yönetici Sayfası</a></li>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href="/User/Index"><i class="fa fa-user"></i>@Session["Ad"] @Session["Soyad"]</a></li>
+
+                    <li><i class="fa-solid fa-right-from-bracket"><a href="/Account/CikisYap">Çıkış Yap</a></i></li>
+                }
+                else
+                {
+                    <li><i class="fa-solid fa-right-to-bracket"><a href="/Account/Login" class="active">Giriş Yap</a></i></li>
+                }
+
+            </ul>
+        </nav>
+        <!--/ NAV BAR -->
+
+    </header>
+    <!--/ UST BOLUM -->
+
+    <!-- GOVDE -->
+    <br />
+    <h2 style="margin-left:70px;margin-top:20px">Sepetinize hoşgeldiniz <a>@Session["Ad"] @Session["Soyad"]</a></h2>
+    <br />
+    <h3 style="margin-left:70px"><a>Sepetim</a></h3>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -28,9 +88,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-
                     <td>@item.Product.Name</td>
-
                     <td>
                         <div>
                             @Html.ActionLink("-", "Decrease", new { id = item.Id }, new { @class = "btn btn-info btn-sm azalt" })
@@ -43,8 +101,7 @@
                             @Html.ActionLink("+", "Increase", new { id = item.Id }, new { @class = "btn btn-info btn-sm arttir" })
                         </div>
                     </td>
-                    <td>@item.Product.Price</td>
-
+                    <td>@item.Product.Price $</td>
                     <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
                     <td><img src="~/Content/images/@item.Product.Image" width="200" height="200" /></td>
                     <td>@Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor musunuz?')" })</td>
@@ -53,67 +110,79 @@
             }
         </tbody>
     </table>
-    <div class="container"> @ViewBag.Tutar</div>
+    <!--/ GOVDE -->
+
+    <!-- SATIN AL, SIL, TOPLAM TUTAR -->
+    <div style="border: 2px solid #428bca; display: flex; padding-left: 20px; margin-left: 700px; margin-right: 925px">
+        <div class="container">
+            <b style="color: black">@ViewBag.Tutar</b>
+        </div>
+    </div>
     <br />
-    <div class="container form-group">
+    <div class="container form-group satinAl">
         <a href="/Sales/BuyAll" class="btn btn-success form-control">Tümünü Satın Al</a>
     </div>
 
-    <div class="container form-group">
+    <div class="container form-group sil">
         <a href="/Cart/DeleteRange" class="btn btn-danger form-control">Hepsini Sil</a>
     </div>
+    <!--/ SATIN AL, SIL, TOPLAM TUTAR -->
+</body>
 
+<style>
+    /* JavaScript style kodları */
+    .txt {
+        line-height: 18px;
+        width: 50px !important;
+        height: 30px;
+        font-size: 14px;
+        text-align: center;
+        border: solid 1px #ccc;
+        margin-left: 25px;
+        margin-right: -10px;
+    }
+    .arttir {
+        display: block;
+        cursor: pointer;
+        border: solid 1px #ccc;
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 75px;
+    }
+    .azalt {
+        display: block;
+        border: solid 1px #ccc;
+        cursor: pointer;
+        position: absolute;
+        margin-right: 90px;
+        margin-top: 0px;
+    }
 
-    <style>
-        .txt {
-            line-height: 18px;
-            /*padding: 0 4px 10px 4px;*/
-            width: 50px !important;
-            height: 32px;
-            font-size: 14px;
-            text-align: center;
-            border: solid 1px #ccc;
-            margin-left: 23px;
-        }
+    .satinAl{
+        width: 500px;
+        margin-left: 580px
+    }
 
-        .arttir {
-            display: block;
-            cursor: pointer;
-            border: solid 1px #ccc;
-            /*text-align: center;
+    .sil {
+        width: 500px;
+        margin-left: 580px
+    }
+</style>
 
-        font-size: 18px;*/
-            position: absolute;
-            margin-top: -32px;
-            margin-left: 75px;
-        }
-
-        .azalt {
-            display: block;
-            border: solid 1px #ccc;
-            cursor: pointer;
-            position: absolute;
-            margin-right: 90px;
-        }
-    </style>
-
-    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
-
-    <script>
-        $(function () {
-
-            $('.txt').on('change', function () {
-                var miktar = $(this).val();
-                var sepetid = $(this).attr('data-id');
-                $.ajax({
-                    url: '/Cart/DinamicQuantity',
-                    data: { id: sepetid, count: miktar },
-                    success: function (res) {
-
-                        document.location.reload();
-                    }
-                });
-
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script>
+    $(function () {
+        $('.txt').on('change', function () {
+            var miktar = $(this).val();
+            var sepetid = $(this).attr('data-id');
+            $.ajax({
+                url: '/Cart/DinamicQuantity',
+                data: { id: sepetid, count: miktar },
+                success: function (res) {
+                    document.location.reload();
+                }
             });
+
         });
-    </script>
+    });
+</script>

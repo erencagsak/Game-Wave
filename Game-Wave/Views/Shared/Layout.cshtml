@@ -37,11 +37,8 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li>
-                        <a href="/Cart/Index">@{Html.RenderAction("TotalCount", "Cart");}<i class="fa-solid fa-basket-shopping" style="color: #ff0000;"></i>
-                        Sepetim
-                        </a>
+                        <a href="/Cart/Index">@{Html.RenderAction("TotalCount", "Cart");}<i class="fa-solid fa-basket-shopping" style="color: #ff0000;"></i>Sepetim</a>
                     </li>
-
                 }
                 @if (User.IsInRole("Admin"))
                 {

@@ -1,38 +1,98 @@
 ﻿@model EntityLayer.Entities.Cart
 @{
-    ViewBag.Title = "Buy";
-    Layout = "~/Views/Shared/Layout.cshtml";
+    Layout = null;
 }
 
-<div class="modal-header">
-    <h2>Satın Al</h2>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <!-- BAŞLIK -->
+    <title>Game Wave | Alışveriş Sepeti</title>
+    <!--/ BAŞLIK -->
+    <!-- IKON CDN LINKLERI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--/ IKON CDN LINKLERI-->
+    <!-- CSS DOSYALARI -->
+    <link rel="stylesheet" href="~/Game-Wave/styles/style.css">
+    <link href="~/Game-Wave/styles/bootstrap.min.css" rel="stylesheet" />
+    <!--/ CSS DOSYALARI -->
+</head>
 
-<div class="container">
-    @using (Html.BeginForm("Buy2", "Sales", FormMethod.Post))
-            {
-                <div class="modal-body">
-                    @Html.HiddenFor(x => x.Id);
-                    <div class="form-group">
-                        Kullanıcı Adı Soyadı: @Session["Ad"] @Session["Soyad"]
-                    </div>
-                    <div class="form-group">
-                        Ürün Bilgisi: @Html.DisplayFor(x => x.Product.Name, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        Ürün Bilgisi: @Html.DisplayFor(x => x.Quantity, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <img src="~/Content/images/@Model.Product.Image" width="90" height="90" />
-                    </div>
-                    <div class="form-group">
-                        Fiyat: @Html.DisplayFor(x => x.Price, new { @class = "form-control" })
-                    </div>
-                </div>
-            <div class="modal-footer" style="float:right">
-                <button class="btn btn-success">Satın Al</button>
-                <a href="/Cart/Index" class="btn btn-dark">İptal</a>
-            </div>
-            }
-</div>
+<body>
+    <!-- UST BOLUM -->
+    <header class="header">
+
+        <!-- LOGO -->
+        <a href="#" class="logo">
+            <img src="~/Game-Wave/images/Logo.png" alt="logo" />
+        </a>
+        <!--/ LOGO -->
+        <!-- NAV BAR -->
+        <nav class="navbar">
+            <ul class="menu-list">
+                <li><a href="/Home/Index" class="active">Ana Sayfa</a></li>
+                <li><a href="#">Hakkımda</a></li>
+                <li><a href="#">İletişim</a></li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <a href="/Cart/Index">
+                            @{Html.RenderAction("TotalCount", "Cart");}<i class="fa-solid fa-basket-shopping" style="color: #ff0000;"></i>
+                            Sepetim
+                        </a>
+                    </li>
+
+                }
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href="/Admin/Index">Yönetici Sayfası</a></li>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href="/User/Index"><i class="fa fa-user"></i>@Session["Ad"] @Session["Soyad"]</a></li>
+
+                    <li><i class="fa-solid fa-right-from-bracket"><a href="/Account/CikisYap">Çıkış Yap</a></i></li>
+                }
+                else
+                {
+                    <li><i class="fa-solid fa-right-to-bracket"><a href="/Account/Login" class="active">Giriş Yap</a></i></li>
+                }
+
+            </ul>
+        </nav>
+        <!--/ NAV BAR -->
+
+    </header>
+    <!--/ UST BOLUM -->
+
+    <div class="modal-header">
+        <h2 style="margin-left:70px;margin-top:20px">Satın alma ekranına hoşgeldiniz <a>@Session["Ad"] @Session["Soyad"]</a></h2>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="text-align:center; color:red">Ürün Bilgisi</th>
+                <th style="text-align:center; color:red">Adet</th>
+                <th style="text-align:center; color:red">Fiyat</th>
+                <th style="text-align:center; color:red">Resim</th>
+                <th style="text-align:center; color:red">Satın Al</th>
+                <th style="text-align:center; color:red">İptal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @using (Html.BeginForm("Buy2", "Sales", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x => x.Id)
+                    <td><p style="text-align: center; margin-top: 50px">@Html.DisplayFor(x => x.Product.Name, new { @class = "form-control" })</p></td>
+                    <td><p style="text-align: center; margin-top: 50px">@Html.DisplayFor(x => x.Quantity, new { @class = "form-control" })</p></td>
+                    <td><p style="text-align: center; margin-top: 50px">@Html.DisplayFor(x => x.Price, new { @class = "form-control" }) $</p></td>
+                    <td><img style="margin-left: 5px; margin-right: -15px" src="~/Content/images/@Model.Product.Image" width="150" height="120" /></td>
+                    <td><button style="width: 150px; margin-top:30px; margin-right:-100px" class="btn btn-success">Satın Al</button></td>
+                    <td><a style="width: 100px; margin-top:30px; margin-right:-100px" href="/Cart/Index" class="btn btn-danger">İptal</a></td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</body>
 
