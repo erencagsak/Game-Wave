@@ -1,2 +1,2 @@
 # Game-Wave
-E-Commerce website for games
+# E-Commerce website for games
